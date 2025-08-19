@@ -29,5 +29,14 @@ public class CommentController {
     @Autowired
     private CommentRepository commentRepository;
 
-    
+    @GetMapping("/tutorials/{tutorialId}/comments")
+    public ResponseEntity<List<Comment>> getAllCommentsByTutorialId(@PathVariable(value = "tutorialId") Long tutorialId) {
+        if (!tutorialRepository.existsById(tutorialId)) {
+            throw new ResourceNotFoundException("Not found Tutorial with id = " + tutorialId);
+        }
+
+        List<Comment> comments = commentRepository.findByTutorialId(tutorialId);
+        return new ResponseEntity<>(comments, HttpStatus.OK);
+    }
+
 }

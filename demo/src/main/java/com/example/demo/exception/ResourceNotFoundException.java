@@ -1,17 +1,10 @@
 package com.example.demo.exception;
 
-public class ResourceNotFoundException {
-    private String message;
+public class ResourceNotFoundException extends RuntimeException {
 
-    public ResourceNotFoundException(String message) {
-        this.message = message;
-    }
+    private static final long serialVersionUID = 1L;
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public ResourceNotFoundException(String msg) {
+        super(msg);
     }
 }
