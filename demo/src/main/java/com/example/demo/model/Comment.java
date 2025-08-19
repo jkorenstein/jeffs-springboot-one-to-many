@@ -25,4 +25,11 @@ public class Comment {
     // getters and setters
     public void setTutorial(Tutorial tutorial) {
     }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+    }
 }
