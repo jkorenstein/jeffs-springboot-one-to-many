@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Tutorial;
 import com.example.demo.repository.TutorialRepository;
+
+@CrossOrigin(origins = "http://localhost:8081")
+@RestController
+@RequestMapping("/api")
 public class TutorialController {
-    private Long id;
-    private String title;
-    private String description;
-    private boolean published;
-
-    public TutorialController() {
-    }
-
-    public TutorialController(Long id, String title, String description, boolean published) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
+    @Autowired
+    TutorialRepository tutorialRepository;
 }
