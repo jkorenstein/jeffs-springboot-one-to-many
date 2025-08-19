@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TutorialRepository extends JpaRepository<Tutorial, Long> {
+//    this JpaRepository interface extends the basic CRUD operations for the Tutorial entity.
     List<Comment> findByTutorialId(Long postId);
 
     @Transactional
