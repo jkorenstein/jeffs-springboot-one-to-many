@@ -32,7 +32,6 @@ public class TutorialController {
     public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
         List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
-
-
-
+        return new ResponseEntity<>(tutorials, HttpStatus.OK);
+    }
 }
