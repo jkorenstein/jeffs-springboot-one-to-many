@@ -39,4 +39,22 @@ public class CommentController {
         return new ResponseEntity<>(comments, HttpStatus.OK);
     }
 
+    @GetMapping("/comments/{id}")
+    public ResponseEntity<Comment> getCommentsByTutorialId(@PathVariable(value = "id") Long id) {
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found Comment with id = " + id));
+
+        return new ResponseEntity<>(comment, HttpStatus.OK);
+    }
+
+    @PostMapping("/tutorials/{tutorialId}/comments")
+    public ResponseEntity<Comment> createComment(@PathVariable(value = "tutorialId") Long tutorialId,
+                                                 @RequestBody Comment commentRequest) {
+        Comment comment = tutorialRepository.findById(tutorialId).map(tutorial -> {
+            commentRequest.setTutorial(tutorial);
+            return commentRepository.save(commentRequest);
+        }).orElseThrow(() -> new ResourceNotFoundException("Not found Tutorial with id = " + tutorialId));
+
+        return new ResponseEntity<>(comment, HttpStatus.CREATED);
+    }
 }

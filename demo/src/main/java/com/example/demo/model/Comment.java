@@ -23,4 +23,6 @@ public class Comment {
     private Tutorial tutorial;
 
     // getters and setters
+    public void setTutorial(Tutorial tutorial) {
+    }
 }
