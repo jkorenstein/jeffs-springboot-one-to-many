@@ -19,12 +19,15 @@ import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Comment;
 import com.example.demo.repository.CommentRepository;
 import com.example.demo.repository.TutorialRepository;
+@CrossOrigin(origins = "http://localhost:8081")
+@RestController
+@RequestMapping("/api")
 public class CommentController {
-    private Long id;
-    private String content;
-    private String author;
+    @Autowired
+    private TutorialRepository tutorialRepository;
 
-    public CommentController() {
+    @Autowired
+    private CommentRepository commentRepository;
 
-    }
+    
 }
