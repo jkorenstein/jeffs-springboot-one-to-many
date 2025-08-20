@@ -20,4 +20,6 @@ public interface TutorialRepository extends JpaRepository<Tutorial, Long> {
         return null; // Placeholder for actual implementation
     };
 
+    List<Tutorial> findByPublished(boolean b);
+
 }
