@@ -69,4 +69,19 @@ public class TutorialController {
 
         return new ResponseEntity<>(tutorialRepository.save(_tutorial), HttpStatus.OK);
     }
+
+    @DeleteMapping("/tutorials/{id}")
+    public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
+        tutorialRepository.deleteById(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/tutorials")
+    public ResponseEntity<HttpStatus> deleteAllTutorials() {
+        tutorialRepository.deleteAll();
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
