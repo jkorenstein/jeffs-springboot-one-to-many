@@ -32,7 +32,11 @@ public class TutorialController {
     public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
         List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
-        // more goes here
+        if (title == null)
+            tutorialRepository.findAll().forEach(tutorials::add);
+        else
+            tutorialRepository.findByTitleContaining(title).forEach(tutorial -> tutorials.add((Tutorial) tutorial));
+
 
         if (tutorials.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
