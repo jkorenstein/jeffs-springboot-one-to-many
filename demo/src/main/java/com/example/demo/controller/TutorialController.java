@@ -43,4 +43,14 @@ public class TutorialController {
         }
         return new ResponseEntity<>(tutorials, HttpStatus.OK);
     }
+
+    @GetMapping("/tutorials/{id}")
+    public ResponseEntity<Tutorial> getTutorialById(@PathVariable("id") long id) {
+        Tutorial tutorial = tutorialRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found Tutorial with id = " + id));
+
+        return new ResponseEntity<>(tutorial, HttpStatus.OK);
+    }
+
+
 }
