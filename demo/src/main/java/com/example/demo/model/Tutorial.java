@@ -34,4 +34,25 @@ public class Tutorial {
     public String getDescription() {
         return description;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Object isPublished() {
+        return published;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPublished(Object published) {
+        if (published instanceof Boolean) {
+            this.published = (Boolean) published;
+        } else if (published instanceof String) {
+            this.published = Boolean.parseBoolean((String) published);
+        } else {
+            throw new IllegalArgumentException("Invalid type for published: " + published.getClass().getName());
+        }
+    }
 }

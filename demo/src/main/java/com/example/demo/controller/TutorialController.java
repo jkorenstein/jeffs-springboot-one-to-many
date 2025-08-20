@@ -58,4 +58,15 @@ public class TutorialController {
         return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
     }
 
+    @PutMapping("/tutorials/{id}")
+    public ResponseEntity<Tutorial> updateTutorial(@PathVariable("id") long id, @RequestBody Tutorial tutorial) {
+        Tutorial _tutorial = tutorialRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found Tutorial with id = " + id));
+
+        _tutorial.setTitle(tutorial.getTitle());
+        _tutorial.setDescription(tutorial.getDescription());
+        _tutorial.setPublished(tutorial.isPublished());
+
+        return new ResponseEntity<>(tutorialRepository.save(_tutorial), HttpStatus.OK);
+    }
 }

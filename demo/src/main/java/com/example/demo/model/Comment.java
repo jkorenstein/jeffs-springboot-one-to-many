@@ -23,13 +23,15 @@ public class Comment {
     private Tutorial tutorial;
 
     // getters and setters
-    public void setTutorial(Tutorial tutorial) {
-    }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setTutorial(Tutorial tutorial) {
+        this.tutorial = tutorial;
     }
 }
