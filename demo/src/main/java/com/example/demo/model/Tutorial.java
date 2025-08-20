@@ -27,5 +27,11 @@ public class Tutorial {
     }
 
     // getters and setters
+    public String getTitle() {
+        return title;
+    }
 
+    public String getDescription() {
+        return description;
+    }
 }
