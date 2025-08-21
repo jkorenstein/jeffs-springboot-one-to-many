@@ -7,7 +7,7 @@ import jakarta.transaction.Transactional;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     // this JpaRepository interface extends the basic CRUD operations for the Comment entity.
-    List<Comment> findByTutorialId(Long postId);
+    List<Comment> findByTutorialId(Long id);
 
     @Transactional
     void deleteByTutorialId(long tutorialId);
