@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 public class Tutorial {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tutorial_generator")
-    private long id;
+    private long tutorialId;
 
     @Column(name = "title")
     private String title;
