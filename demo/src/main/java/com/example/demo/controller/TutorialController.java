@@ -30,13 +30,13 @@ public class TutorialController {
 
     @GetMapping("/tutorials")
     public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
+        System.out.println("getting a list of tutorials");
         List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
         if (title == null)
             tutorialRepository.findAll().forEach(tutorials::add);
         else
             tutorialRepository.findByTitleContaining(title).forEach(tutorial -> tutorials.add((Tutorial) tutorial));
-
 
         if (tutorials.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -50,6 +50,17 @@ public class TutorialController {
                 .orElseThrow(() -> new ResourceNotFoundException("Not found Tutorial with id = " + id));
 
         return new ResponseEntity<>(tutorial, HttpStatus.OK);
+    }
+
+    @GetMapping("/tutorials/published")
+    public ResponseEntity<List<Tutorial>> findByPublished() {
+        List<Tutorial> tutorials = tutorialRepository.findByPublished(true);
+
+        if (tutorials.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(tutorials, HttpStatus.OK);
     }
 
     @PostMapping("/tutorials")
@@ -82,16 +93,5 @@ public class TutorialController {
         tutorialRepository.deleteAll();
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @GetMapping("/tutorials/published")
-    public ResponseEntity<List<Tutorial>> findByPublished() {
-        List<Tutorial> tutorials = tutorialRepository.findByPublished(true);
-
-        if (tutorials.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-
-        return new ResponseEntity<>(tutorials, HttpStatus.OK);
     }
 }
