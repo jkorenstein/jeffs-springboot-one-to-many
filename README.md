@@ -28,3 +28,15 @@ then in browser:
 to see database: http://localhost:8080/h2-ui/ (url = jdbc:h2:mem:jeff-springboot-one-to-many)
 
 to hit endpoint: http://localhost:8080/api/tutorials
+
+to enter data into the H2 database:
+```
+INSERT INTO TUTORIALS VALUES(1,'here are a bunch of details about the tutorial', true, 'test tutorial 1');
+INSERT INTO TUTORIALS VALUES(2,'here are some details about a different tutorial', false, 'test tutorial 2');
+SELECT * FROM TUTORIALS;
+INSERT INTO COMMENTS VALUES(1001, 'I loved this tutorial!', 1);
+INSERT INTO COMMENTS VALUES(1002, 'I hated this tutorial!', 1);
+INSERT INTO COMMENTS VALUES(1003, 'This tutorial was meh!', 2);
+SELECT * FROM COMMENTS;
+```
+
