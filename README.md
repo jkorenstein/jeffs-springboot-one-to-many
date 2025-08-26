@@ -29,14 +29,14 @@ to see database: http://localhost:8080/h2-ui/ (url = jdbc:h2:mem:jeff-springboot
 
 to hit endpoint: 
 
-tutorials:
+Tutorials:
 - http://localhost:8080/api/tutorials or 
 - http://localhost:8080/api/tutorials/1 or
 - http://localhost:8080/api/tutorials/published
 
-comments:
+Comments:
 - http://localhost:8080/api/tutorials/1/comments
-- http://localhost:8080/api/comments/1001  (not working yet)
+- http://localhost:8080/api/comments/1001
 
 to enter data into the H2 database:
 ```
