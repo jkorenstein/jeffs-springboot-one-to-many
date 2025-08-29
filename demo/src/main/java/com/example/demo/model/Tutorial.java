@@ -12,6 +12,7 @@ public class Tutorial {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tutorial_generator")
     private long id;
 
+
     @Column(name = "title")
     private String title;
 
@@ -20,6 +21,10 @@ public class Tutorial {
 
     @Column(name = "published")
     private boolean published;
+
+    @OneToMany(mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments;
+
 
     public Tutorial() {
     }
@@ -56,28 +61,14 @@ public class Tutorial {
         return published;
     }
 
-    public String getNonsense() {
-        return "nonsense";
-    }
-
-    @JsonProperty("a_list_of_numbers")
-    public List<String> getStringList() {
-        return List.of("one", "two", "three");
-    }
-
     public List<Comment> getComments() {
         return comments;
     }
-    @OneToMany(mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> comments;
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-//    public Object isPublished() {
-//        return published;
-//    }
     public void setDescription(String description) {
         this.description = description;
     }
