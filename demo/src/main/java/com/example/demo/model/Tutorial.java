@@ -50,17 +50,20 @@ public class Tutorial {
         return description;
     }
 
-    public boolean isPublishedBoolean() {
+    public boolean isPublished() {
         return published;
     }
 
+    public String getNonsense() {
+        return "nonsense";
+    }
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public Object isPublished() {
-        return published;
-    }
+//    public Object isPublished() {
+//        return published;
+//    }
     public void setDescription(String description) {
         this.description = description;
     }
