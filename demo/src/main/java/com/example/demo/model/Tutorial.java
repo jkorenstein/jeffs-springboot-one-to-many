@@ -27,19 +27,19 @@ public class Tutorial {
         this.description = description;
         this.published = published;
     }
-//    // methods
-//    List<Tutorial> findByPublished(boolean published) {
-//        // This method is used to find tutorials by their published status.
-//        // The actual implementation would typically involve a query to the database.
-//        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
-//        return null; // Placeholder for actual implementation
-//    }
-//    List<Tutorial> findByTitleContaining(String title) {
-//        // This method is used to find tutorials by title containing a specific string.
-//        // The actual implementation would typically involve a query to the database.
-//        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
-//        return null; // Placeholder for actual implementation
-//    }
+    // methods
+    List<Tutorial> findByPublished(boolean published) {
+        // This method is used to find tutorials by their published status.
+        // The actual implementation would typically involve a query to the database.
+        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
+        return null; // Placeholder for actual implementation
+    }
+    List<Tutorial> findByTitleContaining(String title) {
+        // This method is used to find tutorials by title containing a specific string.
+        // The actual implementation would typically involve a query to the database.
+        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
+        return null; // Placeholder for actual implementation
+    }
 
     // getters and setters
     public String getTitle() {
