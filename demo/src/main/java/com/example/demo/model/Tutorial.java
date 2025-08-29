@@ -50,6 +50,10 @@ public class Tutorial {
         return description;
     }
 
+    public boolean isPublishedBoolean() {
+        return published;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
