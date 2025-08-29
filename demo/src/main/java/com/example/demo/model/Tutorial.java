@@ -1,5 +1,7 @@
 package com.example.demo.model;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Comments;
 
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class Tutorial {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tutorial_generator")
     private long id;
 
+
     @Column(name = "title")
     private String title;
 
@@ -19,6 +22,10 @@ public class Tutorial {
     @Column(name = "published")
     private boolean published;
 
+    @OneToMany(mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments;
+
+
     public Tutorial() {
     }
 
@@ -27,19 +34,19 @@ public class Tutorial {
         this.description = description;
         this.published = published;
     }
-//    // methods
-//    List<Tutorial> findByPublished(boolean published) {
-//        // This method is used to find tutorials by their published status.
-//        // The actual implementation would typically involve a query to the database.
-//        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
-//        return null; // Placeholder for actual implementation
-//    }
-//    List<Tutorial> findByTitleContaining(String title) {
-//        // This method is used to find tutorials by title containing a specific string.
-//        // The actual implementation would typically involve a query to the database.
-//        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
-//        return null; // Placeholder for actual implementation
-//    }
+    // methods
+    List<Tutorial> findByPublished(boolean published) {
+        // This method is used to find tutorials by their published status.
+        // The actual implementation would typically involve a query to the database.
+        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
+        return null; // Placeholder for actual implementation
+    }
+    List<Tutorial> findByTitleContaining(String title) {
+        // This method is used to find tutorials by title containing a specific string.
+        // The actual implementation would typically involve a query to the database.
+        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
+        return null; // Placeholder for actual implementation
+    }
 
     // getters and setters
     public String getTitle() {
@@ -50,13 +57,18 @@ public class Tutorial {
         return description;
     }
 
+    public boolean isPublished() {
+        return published;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public Object isPublished() {
-        return published;
-    }
     public void setDescription(String description) {
         this.description = description;
     }

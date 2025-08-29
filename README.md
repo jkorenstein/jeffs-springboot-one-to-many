@@ -6,39 +6,41 @@ Jeff Aug 2025
 
 to run:
 
-cd /Users/jeffkorenstein/dev/learning/jeffs-springboot-one-to-many/demo (or correct folder)
+
 
 ```
+cd ~/dev/learning/jeffs-springboot-one-to-many/demo (or correct folder)
 mvn clean install
-
 cd target
-
 java -jar demo-0.0.1-SNAPSHOT.jar
 ```
 
 or
 
 ```
+cd ~/dev/learning/jeffs-springboot-one-to-many/demo (or correct folder)
 mvn clean install
 java -jar ./target/demo-0.0.1-SNAPSHOT.jar
 ```
 
 then in browser:
 
-to see database: http://localhost:8080/h2-ui/ (url = jdbc:h2:mem:jeff-springboot-one-to-many)
+### to see database:
 
-to hit endpoint: 
+http://localhost:8080/h2-ui/ (url = jdbc:h2:mem:jeff-springboot-one-to-many)
 
-Tutorials:
+### to hit endpoint: 
+
+Tutorials endpoints:
 - http://localhost:8080/api/tutorials or 
 - http://localhost:8080/api/tutorials/1 or
 - http://localhost:8080/api/tutorials/published
 
-Comments:
+Comments endpoints:
 - http://localhost:8080/api/tutorials/1/comments
 - http://localhost:8080/api/comments/1001
 
-to enter data into the H2 database:
+### to enter data into the H2 database:
 ```
 INSERT INTO TUTORIALS VALUES(1,'here are a bunch of details about the tutorial', true, 'test tutorial 1');
 INSERT INTO TUTORIALS VALUES(2,'here are some details about a different tutorial', false, 'test tutorial 2');
