@@ -57,6 +57,10 @@ public class Tutorial {
     public String getNonsense() {
         return "nonsense";
     }
+
+    public List<String> getStringList() {
+        return List.of("one", "two", "three");
+    }
     public void setTitle(String title) {
         this.title = title;
     }
