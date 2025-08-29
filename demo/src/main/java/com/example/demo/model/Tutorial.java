@@ -1,6 +1,7 @@
 package com.example.demo.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Comments;
 
 import java.util.List;
 
@@ -63,6 +64,13 @@ public class Tutorial {
     public List<String> getStringList() {
         return List.of("one", "two", "three");
     }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+    @OneToMany(mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments;
+
     public void setTitle(String title) {
         this.title = title;
     }
