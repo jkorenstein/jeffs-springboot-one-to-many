@@ -25,12 +25,12 @@ public class Comment {
     private Tutorial tutorial;
 
     // methods
-//    List<Comment> findByTutorialId(Long id) {
-//        // This method is used to find comments by the associated tutorial ID.
-//        // The actual implementation would typically involve a query to the database.
-//        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
-//        return null; // Placeholder for actual implementation
-//    }
+    List<Comment> findByTutorialId(Long id) {
+        // This method is used to find comments by the associated tutorial ID.
+        // The actual implementation would typically involve a query to the database.
+        // This method likely corresponds to a custom query leveraging Spring Data JPA's query derivation mechanism.
+        return null; // Placeholder for actual implementation
+    }
 
     // getters and setters
     public String getContent() {

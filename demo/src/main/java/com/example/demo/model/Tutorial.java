@@ -1,4 +1,5 @@
 package com.example.demo.model;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -58,6 +59,7 @@ public class Tutorial {
         return "nonsense";
     }
 
+    @JsonProperty("a_list_of_numbers")
     public List<String> getStringList() {
         return List.of("one", "two", "three");
     }
